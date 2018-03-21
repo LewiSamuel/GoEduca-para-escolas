@@ -1,0 +1,66 @@
+<?php
+  
+  if (isset($_POST['contact'])) {
+      $emailToSend = "daniel@goeduca.com";
+      $backTo = '/?succ';
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= 'From: GoEduca <suporte@goeduca.com>' . "\r\n";
+
+      $message = "<p>Esta é uma mensagem da pagina de contato por ".$_POST['nome']." < ".$_POST['email']."> <br><br></p>";
+      $message .= "<p>".$_POST['mensagem']."</p>";
+      $url = 'http://playeduca.esy.es/api2/';
+      $data = array(
+        'to' => $emailToSend,
+        'subject' => $_POST['assunto'],
+        'message' => $message,
+        'backTo' => $backTo,
+        'headers' => $headers);
+      $options = array(
+              'http' => array(
+              'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+              'method'  => 'POST',
+              'content' => http_build_query($data),
+          )
+      );
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+  }
+
+?>
+<section class="container">
+	<br>
+	<form class="row" method="POST" action="">
+		<div class="col s12 m6 offset-m3 center-align">
+				<div class="col s12">
+					<div class="title-pag"><b>Entre em contato</b></div>
+				</div>
+				<div class="input-field col s12">
+					<input name="nome" type="hidden" <?php echo "value='".$pessoaNome."'"; ?> >
+					<input id="nome"  type="text" disabled="disabled" <?php echo "value='".$pessoaNome."'"; ?> >
+					<label for="nome" class="center-align">Nome</label>
+				</div>
+				<div class="input-field col s12">
+					<input name="email" type="hidden" <?php echo "value='".$pessoaEmail."'"; ?> >
+					<?php
+						if(isset($pessoaEmail)){
+							$status = "disabled='disabled'";
+						}else{
+							$status = NULL;
+						}
+					?>
+					<input id="email"  type="text" <?php echo $status." value='".$pessoaEmail."'"; ?> >
+					<label for="email">Email</label>
+				</div>
+				<div class="input-field col s12">
+					<input id="assunto" name="assunto" type="text" required>
+					<label for="assunto" class="center-align">Assunto</label>
+				</div>
+				<div class="input-field col s12">
+					<textarea id="mensagem" name="mensagem" class="materialize-textarea"></textarea>
+					<label for="mensagem">Mensagem</label>
+				</div>
+				<button type="submit" name="contact" class="btn bluego">Enviar</button>
+		</div>
+	</form>
+</section>

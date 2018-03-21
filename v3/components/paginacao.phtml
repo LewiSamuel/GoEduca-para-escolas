@@ -1,0 +1,89 @@
+
+<!--
+	*
+ 	*	 PAGINAÇÃO
+ 	*
+-->
+
+	<?php
+
+	$o_pesquisaJogo = new PesquisaJogoModel();
+
+	if(isset($_GET['s'])){
+		$total = $o_pesquisaJogo->countByNome($_GET['s']);
+		$busca = "s=".$_GET['s']."&";
+	}else{
+		$total = $o_pesquisaJogo->countByNome();
+		$busca = "";
+	}
+
+	$totalDePaginas = ceil($total/$tamanhoDaPagina);
+
+	?>
+
+	<?php
+		 if($totalDePaginas != 1){
+	?>
+	<div class='row center'>
+		<div class='col s12 grey-text'>
+			Veja mais <?php echo ($total-$tamanhoDaPagina); ?> resultados!
+		</div>
+	</div>
+	<?php
+	 } 
+	?>
+
+
+
+	<div class="row center">
+
+		<ul class='pagination'>
+			<?php
+
+			if($paginaAtual==1){
+				$ativo = "disabled";
+				$btn_href = "#!";
+			}else{	
+				$ativo = "waves-effect";
+				$btn_href = "$APP_PATH_VERSION/?$busca"."p=".($paginaAtual-1);
+			}
+
+			echo "<li class='$ativo'>
+			<a href='$btn_href'>
+			<i class='material-icons'>chevron_left</i>
+			</a>
+			</li>";	
+
+
+
+			for($contador=1; $contador <= $totalDePaginas ; $contador++){ 
+
+				if($contador==$paginaAtual)
+					$ativo = "active teal";
+				else
+					$ativo = "waves-effect";
+
+				echo "<li class='$ativo'>
+				<a href='$APP_PATH_VERSION/?$busca"."p=$contador'>$contador</a>
+				</li>";
+			}
+
+
+			if($paginaAtual==$totalDePaginas){
+				$ativo = "disabled";
+				$btn_href = "#!";
+			}else{	
+				$ativo = "waves-effect";
+				$btn_href = "$APP_PATH_VERSION/?$busca"."p=".($paginaAtual+1);
+			}
+
+			echo "<li class='$ativo'>
+					<a href='$btn_href'>
+						<i class='material-icons'>chevron_right</i>
+					</a>
+				</li>";	
+
+			?>
+
+		</ul>
+	</div>

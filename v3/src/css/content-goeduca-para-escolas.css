@@ -1,0 +1,283 @@
+
+body{
+	background-color: #fafafa;
+	color: gray;
+}
+/*main{
+	padding-left: 242px;
+}*/
+.btn-move-up2{
+	position: absolute;
+	right: 10px;
+}
+.breadcrumb {
+	font-size: 20px;
+	color: rgb(175, 175, 175);
+}
+
+.breadcrumb i,
+.breadcrumb [class^="mdi-"], .breadcrumb [class*="mdi-"],
+.breadcrumb i.material-icons {
+	display: inline-block;
+	float: left;
+	font-size: 20px;
+}
+
+.breadcrumb:before {
+	content: '\E5CC';
+	color: rgb(175, 175, 175);
+	vertical-align: top;
+	display: inline-block;
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 14px;
+	margin: 0 10px 0 8px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.breadcrumb:first-child:before {
+	display: none;
+	margin-left: 15px;
+}
+
+.breadcrumb:last-child {
+	color: #444;
+	font-weight: bold;
+}
+
+.bloco{
+	background-color: white;
+	padding: 15px;
+	border: 1px solid #EEE;
+}
+.bloco2{
+	padding: 35px;
+	border: 1px solid #EEE;
+}
+#card-stats {
+	padding-top: 12px;
+}
+
+#chart-dashboard .card {
+	overflow: hidden;
+}
+
+#chart-dashboard .card .card-content {
+	padding: 10px 14px;
+}
+
+.sample-chart-wrapper {
+	width: 100%;
+}
+
+
+
+
+
+
+#card-stats .card-content {
+	text-align: center;
+}
+
+#card-stats .card-stats-title {
+	font-size: 1rem;
+}
+
+#card-stats .card-stats-title i {
+	font-size: 1.2rem;
+	top: 4px;
+	position: relative;
+}
+
+#card-stats .card-stats-compare {
+	font-size: 1.0rem;
+}
+
+#card-stats .card-stats-compare i {
+	position: relative;
+	top: 5px;
+}
+
+#card-stats .card-stats-number {
+	font-size: 1.8rem;
+	line-height: 2.0rem;
+	margin: 1.2rem 0 0.2rem 0;
+	font-weight: 500;
+}
+
+#card-stats .card .card-content {
+	padding: 10px 14px;
+}
+
+#card-stats .card .card-action {
+	padding: 10px 14px;
+}
+
+
+
+
+.chart-title {
+	font-size: 1.6rem;
+	font-weight: 300;
+}
+
+
+
+
+
+
+/* Revenue Chart */
+.chart-revenue {
+	float: right;
+	text-align: center;
+	padding: 8px;
+	border-radius: 3px;
+}
+
+.chart-revenue .chart-revenue-total {
+	font-size: 0.9rem;
+	margin: 0;
+}
+
+.chart-revenue .chart-revenue-per {
+	font-size: 0.8rem;
+	margin: 0;
+}
+
+.chart-revenue .chart-revenue-per i {
+	position: relative;
+	top: 5px;
+}
+
+.chart-revenue-switch {
+	padding-top: 28px;
+	padding-right: 10px;
+	color: #fff;
+	text-align: right;
+}
+
+
+
+
+
+@media only screen and (max-width: 992px){
+	#card-stats .card-stats-compare {
+		font-size: 0.8rem;
+	}
+
+	main{
+		padding-left: 0 !important;
+	}
+}
+
+
+
+
+
+/* work card */
+#work-collections .collection-header {
+	font-size: 1.14rem;
+	font-weight: 500;
+}
+
+#work-collections p.collections-title {
+	font-size: 1.0rem;
+	padding: 0;
+	margin: 0;
+	font-weight: 500;
+}
+
+#work-collections p.collections-content {
+	font-size: 0.9rem;
+	padding: 0;
+	margin: 0;
+	font-weight: 400;
+}
+
+#work-collections .collection-item.avatar {
+	height: auto;
+	padding-top: 22px;
+}
+
+.turma{
+	height: 40px;
+	width: 40px;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+	margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+.articleCardJogo{
+
+}
+
+.articleCardJogo table{
+	margin-top: 10px;
+}
+
+
+.articleCardJogo .capa{
+	margin-right: 0;
+	padding-right: 0px;
+}
+
+.articleCardJogo .capa img{
+	width: 100%;
+	height: 200px;
+	object-position: center;
+	object-fit: cover;
+	margin-bottom: -6px;
+	margin-left: -12px;
+}
+
+.articleCardJogo .descricao{
+	margin-left: -20px;
+}
+
+.articleCardJogo .descricao section{
+	padding: 15px 10px 0px 0px;
+}
+
+.articleCardJogo .descricao .ptruncate{
+	overflow: hidden;
+	max-height: 145px;
+}
+
+.articleCardJogo .descricao .ranking{
+	margin-top: 3px;
+}
+
+.articleCardJogo .plataformas{
+	width:  100%;
+	margin-right: -21px;
+	padding: 9px 15px 23px;
+	text-align: center;
+	background-color:  #eee;
+}
+.articleCardJogo .plataformas .btn{
+	font-size: 10px;
+	margin-top: 10px;
+	padding: 0 10px;
+}
+
+.articleCardJogo .chip{
+	height: 28px;
+    font-size: 11px;
+    line-height: 28px;
+}
+
+.articleCardJogo .chip .material-icons{
+	font-size: 19px;
+	line-height: 1.5;
+}

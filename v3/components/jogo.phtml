@@ -1,0 +1,99 @@
+
+
+<article class='col m12 l6 articleCardJogo'>
+	<section class='card hoverable'>
+		<!--
+			CAPA DE JOGO
+		-->
+		<section class='col s12 m6 l7 capa'>
+			<img <?php echo "src='".$APP_PATH_VERSION."/components/config/imgResize2.php?img=".$APP_PATH_ROOT."/src/img/games/$JogoId.png&w=230'"; ?> >
+		</section>
+
+		<!--
+			INFORMAÇÕES DE JOGO
+		-->
+		<section class='col s12 m6 l5 descricao'>
+			<section class='card-content'>
+				<div class='ptruncate'>
+					<b class="truncate tooltipped" data-position="bottom" data-delay="50" <?php echo "data-tooltip='".$JogoTitulo."'"; ?> >
+						<?php echo $JogoTitulo; ?>
+					</b>
+					<div style="margin-top: 10px;">
+						<a <?php echo "href='$APP_PATH_VERSION/?s=$JogoDisciplina'"; ?> class="chip truncate no-margin-b tooltipped" data-position="bottom" data-delay="50" <?php echo "data-tooltip='".$JogoDisciplina."'"; ?>>
+							<i class='material-icons left'>loyalty</i>
+							<?php echo $JogoDisciplina; ?>
+						</a><br>
+						<a <?php echo "href='$APP_PATH_VERSION/?s=$JogoTema'"; ?> class="chip truncate no-margin-b tooltipped" data-position="bottom" data-delay="50" <?php echo "data-tooltip='".$JogoTema."'"; ?>>
+							<i class='material-icons left'>loyalty</i>
+							<?php echo $JogoTema; ?>
+						</a><br>
+						<a <?php echo "href='$APP_PATH_VERSION/?s=$JogoTopico'"; ?> class="chip truncate no-margin-b tooltipped" data-position="bottom" data-delay="50" <?php echo "data-tooltip='".$JogoTopico."'"; ?>>
+							<i class='material-icons left'>loyalty</i>
+							<?php echo $JogoTopico; ?>
+						</a><br>
+					</div>
+				</div>
+				<div class='ranking center'>
+					<a class='activator btn btn-flat grey-text' style='
+					font-weight:  bold;font-size: 12px;'<?php
+
+						echo "onclick=\"
+									var dadoJogo = {
+										JogoId : '$JogoId',
+										IdInstituicao : '".$_SESSION['IdInstituicao']."'
+									};
+									$.ajax({
+										url: '/escolas/v3/components/config/cardranking.php',
+										type: 'POST',
+										data: dadoJogo,
+										beforeSend: function () {
+											$('#".$JogoId."').html('carregando');
+										},
+										success: function (response) {
+											$('#".$JogoId."').html(response);
+										}
+									});
+			
+								\"";
+					
+					?>>Ranking</a>
+				</div>
+			</section>
+		</section>
+
+
+		<div class='card-reveal'>
+			<span class='card-title grey-text text-darken-4'>
+				 <b>Ranking: </b><?php echo $JogoTitulo; ?>
+				 <i class='material-icons right'>close</i>
+			</span>
+
+			<table>
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nome</th>
+						<th class='right-align'>pontos</th>
+					</tr>
+				</thead>
+				<tbody <?php echo "id='$JogoId'";  ?>>
+				</tbody>
+			</table>
+		</div>
+
+		<section class='col s12 plataformas'>
+			<div style='font-size: 12px;'>Jogar:</div>
+			<a href='!#' class='btn transparent grey-text'>
+				Linux
+				<i class='fa fa-linux left'></i>
+			</a>
+			<a href='!#' class='btn transparent grey-text'>
+				Mac Os
+				<i class='fa fa-apple left'></i>
+			</a>
+			<a href='!#' class='btn transparent grey-text'>
+				navegador
+				<i class='fa fa-chrome left'></i>
+			</a>
+		</section>
+	</article>
